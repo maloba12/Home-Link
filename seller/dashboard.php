@@ -66,7 +66,7 @@ $recentProperties = $recentStmt->fetchAll();
 $bookingsStmt = $pdo->prepare("SELECT b.*, p.title as property_title, u.username as buyer_name, u.email as buyer_email
                                FROM bookings b
                                JOIN properties p ON b.property_id = p.property_id
-                               JOIN users u ON b.user_id = u.user_id
+                               JOIN users u ON b.buyer_id = u.user_id
                                WHERE p.seller_id = ?
                                ORDER BY b.booking_date DESC
                                LIMIT 5");

@@ -31,7 +31,7 @@ $stmt->execute([$userId]);
 $stats['active_listings'] = $stmt->fetch()['total'];
 
 // Total clients (unique buyers who booked agent's properties)
-$stmt = $pdo->prepare("SELECT COUNT(DISTINCT b.user_id) as total 
+$stmt = $pdo->prepare("SELECT COUNT(DISTINCT b.buyer_id) as total 
                        FROM bookings b
                        JOIN properties p ON b.property_id = p.property_id
                        WHERE p.seller_id = ?");
@@ -64,11 +64,9 @@ $propertiesStmt->execute([$userId]);
 $managedProperties = $propertiesStmt->fetchAll();
 
 // Get recent clients
-$clientsStmt = $pdo->prepare("SELECT DISTINCT u.user_id, u.username, u.email, 
-                               COUNT(b.booking_id) as booking_count,
-                               MAX(b.booking_date) as last_contact
+$clientsStmt = $pdo->prepare("SELECT u.user_id, u.username, u.email, MAX(b.created_at) as last_contact
                                FROM users u
-                               JOIN bookings b ON u.user_id = b.user_id
+                               JOIN bookings b ON u.user_id = b.buyer_id
                                JOIN properties p ON b.property_id = p.property_id
                                WHERE p.seller_id = ?
                                GROUP BY u.user_id, u.username, u.email
@@ -81,7 +79,7 @@ $recentClients = $clientsStmt->fetchAll();
 $dealsStmt = $pdo->prepare("SELECT b.*, p.title as property_title, p.price, u.username as client_name
                             FROM bookings b
                             JOIN properties p ON b.property_id = p.property_id
-                            JOIN users u ON b.user_id = u.user_id
+                            JOIN users u ON b.buyer_id = u.user_id
                             WHERE p.seller_id = ?
                             ORDER BY b.booking_date DESC
                             LIMIT 5");

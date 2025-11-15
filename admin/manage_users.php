@@ -41,6 +41,8 @@ if ($filter === 'buyer') {
     $sql .= " AND role = 'seller'";
 } elseif ($filter === 'admin') {
     $sql .= " AND role = 'admin'";
+} elseif ($filter === 'agent') {
+    $sql .= " AND role = 'agent'";
 }
 
 $sql .= " ORDER BY created_at DESC";
@@ -86,6 +88,7 @@ include '../includes/admin_header.php';
         <a href="?filter=all" class="filter-tab <?php echo $filter === 'all' ? 'active' : ''; ?>">All Users</a>
         <a href="?filter=buyer" class="filter-tab <?php echo $filter === 'buyer' ? 'active' : ''; ?>">Buyers</a>
         <a href="?filter=seller" class="filter-tab <?php echo $filter === 'seller' ? 'active' : ''; ?>">Sellers</a>
+        <a href="?filter=agent" class="filter-tab <?php echo $filter === 'agent' ? 'active' : ''; ?>">Agents</a>
         <a href="?filter=admin" class="filter-tab <?php echo $filter === 'admin' ? 'active' : ''; ?>">Admins</a>
     </div>
     
@@ -124,6 +127,7 @@ include '../includes/admin_header.php';
                                         <select name="role" onchange="this.form.submit()">
                                             <option value="buyer" <?php echo $user['role'] === 'buyer' ? 'selected' : ''; ?>>Buyer</option>
                                             <option value="seller" <?php echo $user['role'] === 'seller' ? 'selected' : ''; ?>>Seller</option>
+                                            <option value="agent" <?php echo $user['role'] === 'agent' ? 'selected' : ''; ?>>Agent</option>
                                             <option value="admin" <?php echo $user['role'] === 'admin' ? 'selected' : ''; ?>>Admin</option>
                                         </select>
                                     </form>

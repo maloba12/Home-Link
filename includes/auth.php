@@ -26,6 +26,11 @@ function isBuyer() {
     return hasRole('buyer');
 }
 
+// Check if user is agent
+function isAgent() {
+    return hasRole('agent');
+}
+
 // Redirect if not logged in
 function requireLogin() {
     if (!isLoggedIn()) {

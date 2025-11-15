@@ -55,11 +55,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <?php endif; ?>
                 
                 <?php if (isLoggedIn()): ?>
-                    <?php if (isAdmin()): ?>
-                        <li><a href="/admin/dashboard.php" class="<?php echo $currentPage === 'dashboard.php' && strpos($_SERVER['REQUEST_URI'], '/admin/') !== false ? 'active' : ''; ?>">
-                            <i class="fas fa-tachometer-alt"></i> Admin Dashboard
-                        </a></li>
-                    <?php elseif (isSeller()): ?>
+                    <?php if (isSeller()): ?>
                         <li><a href="/seller/dashboard.php" class="<?php echo $currentPage === 'dashboard.php' && strpos($_SERVER['REQUEST_URI'], '/seller/') !== false ? 'active' : ''; ?>">
                             <i class="fas fa-store"></i> My Dashboard
                         </a></li>
