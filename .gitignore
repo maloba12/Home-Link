@@ -1,0 +1,33 @@
+# HomeLink .gitignore
+
+# Database config (if you create a separate config file)
+config/local.php
+config/production.php
+
+# Uploaded files (keep structure)
+# assets/uploads/*
+!assets/uploads/.gitkeep
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vendor (if using Composer)
+vendor/
+
+# Node modules (if using npm)
+node_modules/
+
+# Backup files
+*.bak
+*.sql~
+
