@@ -1,6 +1,6 @@
 <?php
 // Database connection configuration
-$host = '127.0.0.1';
+$host = 'localhost';
 $dbname = 'homelink';
 $username = 'homelink';
 $password = 'homelink_pw';
