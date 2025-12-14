@@ -1,15 +1,15 @@
 <?php
-require_once dirname(__DIR__) . '/includes/db_connect.php';
-require_once dirname(__DIR__) . '/includes/auth.php';
+require_once '../includes/db_connect.php';
+require_once '../includes/auth.php';
 
 // Check if user is logged in and is a buyer
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: ../login.php');
     exit();
 }
 
 if (!isBuyer()) {
-    header('Location: /index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -54,7 +54,7 @@ include 'buyer_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-list"></i> All Bookings (<?php echo count($bookings); ?>)</h2>
-                <a href="/properties.php" class="btn btn-primary">
+                <a href="properties.php" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Book New Viewing
                 </a>
             </div>
@@ -63,7 +63,7 @@ include 'buyer_header.php';
                 <div class="empty-state">
                     <i class="fas fa-calendar"></i>
                     <p>You haven't made any bookings yet.</p>
-                    <a href="/properties.php" class="btn btn-primary">
+                    <a href="properties.php" class="btn btn-primary">
                         <i class="fas fa-search"></i> Browse Properties
                     </a>
                 </div>
@@ -90,7 +90,7 @@ include 'buyer_header.php';
                                             <?php
                                             $primaryImage = $booking['primary_image'] ?? '';
                                             if ($primaryImage && strpos($primaryImage, 'assets/') !== 0 && strpos($primaryImage, '/') !== 0) {
-                                                $primaryImage = 'assets/images/' . ltrim($primaryImage, '/');
+                                                $primaryImage = '../assets/images/' . ltrim($primaryImage, '/');
                                             }
                                             $hasImage = false;
                                             if (!empty($primaryImage)) {
@@ -136,7 +136,7 @@ include 'buyer_header.php';
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="/property_details.php?id=<?php echo $booking['property_id']; ?>" class="btn btn-sm btn-primary" title="View Property">
+                                        <a href="../property_details.php?id=<?php echo $booking['property_id']; ?>" class="btn btn-sm btn-primary" title="View Property">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     </td>
@@ -150,4 +150,4 @@ include 'buyer_header.php';
     </main>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/buyer_footer.php'; ?>

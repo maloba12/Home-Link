@@ -1,15 +1,15 @@
 <?php
-require_once dirname(__DIR__) . '/includes/db_connect.php';
-require_once dirname(__DIR__) . '/includes/auth.php';
+require_once '../includes/db_connect.php';
+require_once '../includes/auth.php';
 
 // Check if user is logged in and is a buyer
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: ../login.php');
     exit();
 }
 
 if (!isBuyer()) {
-    header('Location: /index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -21,7 +21,7 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove'])) {
     try {
         $stmt = $pdo->prepare("DELETE FROM favorites WHERE favorite_id = ? AND user_id = ?");
         $stmt->execute([$_GET['remove'], $userId]);
-        header('Location: /buyer/favorites.php?success=removed');
+        header('Location: buyer/favorites.php?success=removed');
         exit();
     } catch (PDOException $e) {
         $error = "Failed to remove favorite";
@@ -71,7 +71,7 @@ include 'buyer_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-list"></i> Saved Properties (<?php echo count($favoriteProperties); ?>)</h2>
-                <a href="/properties.php" class="btn btn-primary">
+                <a href="properties.php" class="btn btn-primary">
                     <i class="fas fa-search"></i> Browse More Properties
                 </a>
             </div>
@@ -80,7 +80,7 @@ include 'buyer_header.php';
                 <div class="empty-state">
                     <i class="fas fa-heart"></i>
                     <p>You haven't saved any properties yet.</p>
-                    <a href="/properties.php" class="btn btn-primary">
+                    <a href="properties.php" class="btn btn-primary">
                         <i class="fas fa-search"></i> Browse Properties
                     </a>
                 </div>
@@ -91,7 +91,7 @@ include 'buyer_header.php';
                             <?php
                             $primaryImage = $property['primary_image'] ?? '';
                             if ($primaryImage && strpos($primaryImage, 'assets/') !== 0 && strpos($primaryImage, '/') !== 0) {
-                                $primaryImage = 'assets/images/' . ltrim($primaryImage, '/');
+                                $primaryImage = '../assets/images/' . ltrim($primaryImage, '/');
                             }
                             $hasImage = false;
                             if (!empty($primaryImage)) {
@@ -136,10 +136,10 @@ include 'buyer_header.php';
                                 </div>
                                 
                                 <div class="property-actions">
-                                    <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-primary">
+                                    <a href="../property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-primary">
                                         <i class="fas fa-eye"></i> View Details
                                     </a>
-                                    <a href="/buyer/favorites.php?remove=<?php echo $property['favorite_id']; ?>" 
+                                    <a href="../buyer/favorites.php?remove=<?php echo $property['favorite_id']; ?>" 
                                        class="btn btn-danger"
                                        onclick="return confirm('Remove this property from favorites?')">
                                         <i class="fas fa-heart-broken"></i> Remove
@@ -154,4 +154,4 @@ include 'buyer_header.php';
     </main>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/buyer_footer.php'; ?>

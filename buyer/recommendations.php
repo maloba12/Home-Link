@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is a buyer
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: ../login.php');
     exit();
 }
 
 if (!isBuyer()) {
-    header('Location: /index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -56,7 +56,7 @@ include 'buyer_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-star"></i> Smart Matches (<?php echo count($recommendedProperties); ?>)</h2>
-                <a href="/properties.php" class="btn btn-primary">
+                <a href="properties.php" class="btn btn-primary">
                     <i class="fas fa-search"></i> Browse All Properties
                 </a>
             </div>
@@ -65,7 +65,7 @@ include 'buyer_header.php';
                 <div class="empty-state">
                     <i class="fas fa-magic"></i>
                     <p>No recommendations available at the moment.</p>
-                    <a href="/properties.php" class="btn btn-primary">
+                    <a href="properties.php" class="btn btn-primary">
                         <i class="fas fa-search"></i> Browse Properties
                     </a>
                 </div>
@@ -75,19 +75,19 @@ include 'buyer_header.php';
                         <div class="property-card">
                             <?php
                             $primaryImage = $property['primary_image'] ?? '';
-                            if ($primaryImage && strpos($primaryImage, 'assets/') !== 0 && strpos($primaryImage, '/') !== 0) {
-                                $primaryImage = 'assets/images/' . ltrim($primaryImage, '/');
+                            if ($primaryImage && strpos($primaryImage, '../') !== 0) {
+                                $primaryImage = '../' . ltrim($primaryImage, '/');
                             }
                             $hasImage = false;
                             if (!empty($primaryImage)) {
-                                $fsPath = dirname(__DIR__) . '/' . ltrim($primaryImage, '/');
+                                $fsPath = dirname(__DIR__) . '/' . ltrim($primaryImage, '../');
                                 if (file_exists($fsPath)) {
                                     $hasImage = true;
                                 }
                             }
                             ?>
                             <?php if ($hasImage): ?>
-                                <img src="<?php echo htmlspecialchars('/' . ltrim($primaryImage, '/')); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" class="property-image">
+                                <img src="<?php echo htmlspecialchars($primaryImage); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" class="property-image">
                             <?php else: ?>
                                 <div class="property-image-placeholder">
                                     <i class="fas fa-home"></i>
@@ -104,7 +104,7 @@ include 'buyer_header.php';
                                 <div class="property-details">
                                     <span><i class="fas fa-bed"></i> <?php echo $property['bedrooms']; ?> Beds</span>
                                     <span><i class="fas fa-bath"></i> <?php echo $property['bathrooms']; ?> Baths</span>
-                                    <span><i class="fas fa-ruler-combined"></i> <?php echo number_format($property['area']); ?> sqft</span>
+                                    <span><i class="fas fa-ruler-combined"></i> <?php echo number_format($property['sqft'] ?? 0); ?> sqft</span>
                                 </div>
                                 
                                 <p class="property-description">
@@ -117,7 +117,7 @@ include 'buyer_header.php';
                                 </div>
                                 
                                 <div class="property-actions">
-                                    <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-primary">
+                                    <a href="../property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-primary">
                                         <i class="fas fa-eye"></i> View Details
                                     </a>
                                     <button class="btn btn-secondary btn-favorite" data-property-id="<?php echo $property['property_id']; ?>">
@@ -133,4 +133,4 @@ include 'buyer_header.php';
     </main>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/buyer_footer.php'; ?>
