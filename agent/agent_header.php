@@ -15,7 +15,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title><?php echo $pageTitle; ?></title>
-    <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="agent-body">
@@ -31,10 +31,10 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     <i class="fas fa-user-circle"></i>
                     <?php echo htmlspecialchars($_SESSION['username'] ?? 'Agent'); ?>
                 </span>
-                <a href="/index.php" class="agent-home-btn" title="View Site">
+                <a href="../index.php" class="agent-home-btn" title="View Site">
                     <i class="fas fa-home"></i>
                 </a>
-                <a href="/logout.php" class="agent-logout-btn" title="Logout">
+                <a href="../logout.php" class="agent-logout-btn" title="Logout">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>

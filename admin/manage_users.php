@@ -180,5 +180,5 @@ function confirmDelete(userId) {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/admin_footer.php'; ?>
 

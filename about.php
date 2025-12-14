@@ -77,10 +77,10 @@ include 'includes/header.php';
             <h2>Ready to Find Your Home?</h2>
             <p>Join HomeLink today and discover properties that match your dreams.</p>
             <div class="cta-buttons">
-                <a href="/properties.php" class="btn btn-primary">
+                <a href="properties.php" class="btn btn-primary">
                     <i class="fas fa-building"></i> Browse Properties
                 </a>
-                <a href="/register.php" class="btn btn-secondary">
+                <a href="register.php" class="btn btn-secondary">
                     <i class="fas fa-user-plus"></i> Create Account
                 </a>
             </div>

@@ -65,10 +65,10 @@
         <div class="info">
             <h3>Quick Links:</h3>
             <ul>
-                <li><a href="/index.php">Home Page</a></li>
-                <li><a href="/login.php">Login Page</a></li>
-                <li><a href="/register.php">Register Page</a></li>
-                <li><a href="/properties.php">Properties Page</a></li>
+                <li><a href="index.php">Home Page</a></li>
+                <li><a href="login.php">Login Page</a></li>
+                <li><a href="register.php">Register Page</a></li>
+                <li><a href="properties.php">Properties Page</a></li>
             </ul>
         </div>
         

@@ -166,7 +166,7 @@ include 'includes/header.php';
                             </div>
                             
                             <div class="property-actions">
-                                <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
+                                <a href="property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                             </div>

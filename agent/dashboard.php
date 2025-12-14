@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is an agent
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isAgent()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -165,19 +165,19 @@ include 'agent_header.php';
         <div class="admin-section">
             <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
             <div class="action-buttons-grid">
-                <a href="/agent/add_property.php" class="action-btn btn-primary">
+                <a href="../agent/add_property.php" class="action-btn btn-primary">
                     <i class="fas fa-plus-circle"></i>
                     <span>Add Property</span>
                 </a>
-                <a href="/agent/managed_properties.php" class="action-btn btn-success">
+                <a href="../agent/managed_properties.php" class="action-btn btn-success">
                     <i class="fas fa-building"></i>
                     <span>View Properties</span>
                 </a>
-                <a href="/agent/clients.php" class="action-btn btn-info">
+                <a href="../agent/clients.php" class="action-btn btn-info">
                     <i class="fas fa-users"></i>
                     <span>Manage Clients</span>
                 </a>
-                <a href="/agent/deals.php" class="action-btn btn-warning">
+                <a href="../agent/deals.php" class="action-btn btn-warning">
                     <i class="fas fa-handshake"></i>
                     <span>Track Deals</span>
                 </a>
@@ -188,14 +188,14 @@ include 'agent_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-building"></i> Managed Properties</h2>
-                <a href="/agent/managed_properties.php" class="btn btn-sm btn-primary">View All</a>
+                <a href="../agent/managed_properties.php" class="btn btn-sm btn-primary">View All</a>
             </div>
             
             <?php if (empty($managedProperties)): ?>
                 <div class="empty-state">
                     <i class="fas fa-building"></i>
                     <p>No properties managed yet.</p>
-                    <a href="/agent/add_property.php" class="btn btn-primary">
+                    <a href="../agent/add_property.php" class="btn btn-primary">
                         <i class="fas fa-plus-circle"></i> Add Property
                     </a>
                 </div>
@@ -252,7 +252,7 @@ include 'agent_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-users"></i> Recent Clients</h2>
-                <a href="/agent/clients.php" class="btn btn-sm btn-primary">View All</a>
+                <a href="../agent/clients.php" class="btn btn-sm btn-primary">View All</a>
             </div>
             
             <?php if (empty($recentClients)): ?>
@@ -296,7 +296,7 @@ include 'agent_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-handshake"></i> Recent Deals</h2>
-                <a href="/agent/deals.php" class="btn btn-sm btn-primary">View All</a>
+                <a href="../agent/deals.php" class="btn btn-sm btn-primary">View All</a>
             </div>
             
             <?php if (empty($recentDeals)): ?>
@@ -334,4 +334,4 @@ include 'agent_header.php';
     </main>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/agent_footer.php'; ?>

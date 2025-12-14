@@ -3,7 +3,7 @@ require_once 'includes/db_connect.php';
 require_once 'includes/auth.php';
 
 if (isLoggedIn()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute([$username, $email, $hashedPassword, $role, $fullName, $phone]);
                 
                 $success = 'Registration successful! You can now login.';
-                header('Location: /login.php?success=1');
+                header('Location: login.php?success=1');
                 exit();
             }
         } catch (PDOException $e) {
@@ -107,7 +107,7 @@ include 'includes/header.php';
             <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Register</button>
         </form>
         
-        <p class="auth-link">Already have an account? <a href="/login.php">Login here</a></p>
+        <p class="auth-link">Already have an account? <a href="login.php">Login here</a></p>
     </div>
 </div>
 

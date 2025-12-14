@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Toggle favorite
 function toggleFavorite(propertyId, button) {
-    fetch('/api/toggle_favorite.php', {
+    fetch('../api/toggle_favorite.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ function toggleFavorite(propertyId, button) {
 function submitBooking(form) {
     const formData = new FormData(form);
     
-    fetch('/api/submit_booking.php', {
+    fetch('../api/submit_booking.php', {
         method: 'POST',
         body: formData
     })

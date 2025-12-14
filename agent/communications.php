@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is an agent
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isAgent()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -151,7 +151,7 @@ include 'agent_header.php';
                     <button type="submit" class="btn btn-secondary">
                         <i class="fas fa-filter"></i> Filter
                     </button>
-                    <a href="/agent/communications.php" class="btn btn-outline">
+                    <a href="../agent/communications.php" class="btn btn-outline">
                         <i class="fas fa-redo"></i> Reset
                     </a>
                 </div>
@@ -654,4 +654,4 @@ function sendBulkMessage() {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/agent_footer.php'; ?>

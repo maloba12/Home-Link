@@ -5,7 +5,7 @@ require_once 'includes/auth.php';
 $property_id = $_GET['id'] ?? 0;
 
 if (!$property_id) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ $stmt->execute([$property_id]);
 $property = $stmt->fetch();
 
 if (!$property) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -64,7 +64,7 @@ include 'includes/header.php';
                 ?>
                 <div class="main-image">
                     <?php if (!empty($mainUrl) && $mainExists): ?>
-                        <img src="<?php echo htmlspecialchars('/' . ltrim($mainUrl, '/')); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" id="main-img">
+                        <img src="<?php echo htmlspecialchars($mainUrl); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" id="main-img">
                     <?php else: ?>
                         <div class="no-image">
                             <i class="fas fa-home"></i>
@@ -214,7 +214,7 @@ include 'includes/header.php';
                         }
                         ?>
                         <?php if (!empty($primaryImage)): ?>
-                            <img src="<?php echo htmlspecialchars('/' . ltrim($primaryImage, '/')); ?>" alt="<?php echo htmlspecialchars($sim['title']); ?>" class="property-image">
+                            <img src="<?php echo htmlspecialchars($primaryImage); ?>" alt="<?php echo htmlspecialchars($sim['title']); ?>" class="property-image">
                         <?php else: ?>
                             <div class="property-image-placeholder">
                                 <i class="fas fa-home"></i>
@@ -238,7 +238,7 @@ include 'includes/header.php';
                                 <span class="property-type-badge"><?php echo ucfirst($sim['type']); ?></span>
                             </div>
                             <div class="property-actions">
-                                <a href="/property_details.php?id=<?php echo $sim['property_id']; ?>" class="btn btn-secondary">
+                                <a href="property_details.php?id=<?php echo $sim['property_id']; ?>" class="btn btn-secondary">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                                 <?php if (isLoggedIn()): ?>

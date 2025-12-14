@@ -137,13 +137,13 @@ class ChatBox {
             let response = '';
             switch(reply) {
                 case 'Browse Properties':
-                    response = 'You can browse our properties by clicking on "Browse Properties" in the menu, or <a href="/properties.php">click here</a> to view them now!';
+                    response = 'You can browse our properties by clicking on "Browse Properties" in the menu, or <a href="properties.php">click here</a> to view them now!';
                     break;
                 case 'How to Register':
-                    response = 'To register, click on the "Register" button in the top menu. You can sign up as a Buyer, Seller, or Agent. <a href="/register.php">Register now</a>';
+                    response = 'To register, click on the "Register" button in the top menu. You can sign up as a Buyer, Seller, or Agent. <a href="register.php">Register now</a>';
                     break;
                 case 'Contact Support':
-                    response = 'You can reach us at:<br>📧 Email: support@homelink.zm<br>📞 Phone: +260 XXX XXX XXX<br>Or visit our <a href="/contact.php">contact page</a>';
+                    response = 'You can reach us at:<br>📧 Email: support@homelink.zm<br>📞 Phone: +260 XXX XXX XXX<br>Or visit our <a href="contact.php">contact page</a>';
                     break;
                 case 'Pricing Info':
                     response = 'Our platform is free for buyers! Sellers and agents can list properties with competitive commission rates. Contact us for detailed pricing.';
@@ -178,11 +178,11 @@ class ChatBox {
         if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
             response = 'Hello! How can I assist you today?';
         } else if (lowerMessage.includes('property') || lowerMessage.includes('house')) {
-            response = 'We have a wide range of properties available! You can <a href="/properties.php">browse our listings here</a>.';
+            response = 'We have a wide range of properties available! You can <a href="properties.php">browse our listings here</a>.';
         } else if (lowerMessage.includes('register') || lowerMessage.includes('sign up')) {
-            response = 'You can register by clicking the "Register" button at the top. <a href="/register.php">Click here to register</a>.';
+            response = 'You can register by clicking the "Register" button at the top. <a href="register.php">Click here to register</a>.';
         } else if (lowerMessage.includes('contact') || lowerMessage.includes('support')) {
-            response = 'You can contact us through our <a href="/contact.php">contact page</a> or email us at support@homelink.zm';
+            response = 'You can contact us through our <a href="contact.php">contact page</a> or email us at support@homelink.zm';
         } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
             response = 'Our pricing varies by property and service. Would you like to know about buyer services or seller/agent fees?';
         } else if (lowerMessage.includes('thank')) {
@@ -190,7 +190,7 @@ class ChatBox {
         } else if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
             response = 'Goodbye! Feel free to reach out anytime. Have a great day! 👋';
         } else {
-            response = 'Thank you for your message. For specific inquiries, please contact our support team at support@homelink.zm or visit our <a href="/contact.php">contact page</a>.';
+            response = 'Thank you for your message. For specific inquiries, please contact our support team at support@homelink.zm or visit our <a href="contact.php">contact page</a>.';
         }
 
         this.addMessage('bot', response);

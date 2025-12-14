@@ -140,10 +140,10 @@ include 'includes/header.php';
             <h2>Ready to Get Started?</h2>
             <p>Join thousands of users who have found their perfect homes through HomeLink.</p>
             <div class="cta-buttons">
-                <a href="/register.php" class="btn btn-primary">
+                <a href="register.php" class="btn btn-primary">
                     <i class="fas fa-user-plus"></i> Sign Up Now
                 </a>
-                <a href="/properties.php" class="btn btn-secondary">
+                <a href="properties.php" class="btn btn-secondary">
                     <i class="fas fa-building"></i> Browse Properties
                 </a>
             </div>

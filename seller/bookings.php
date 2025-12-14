@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is a seller
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isSeller()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -88,7 +88,7 @@ include 'seller_header.php';
                     <button type="submit" class="btn btn-secondary">
                         <i class="fas fa-filter"></i> Filter
                     </button>
-                    <a href="/seller/bookings.php" class="btn btn-outline">
+                    <a href="../seller/bookings.php" class="btn btn-outline">
                         <i class="fas fa-redo"></i> Reset
                     </a>
                 </div>
@@ -335,4 +335,4 @@ function contactBuyer(email) {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/seller_footer.php'; ?>

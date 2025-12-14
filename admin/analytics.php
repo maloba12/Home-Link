@@ -175,5 +175,5 @@ new Chart(propertiesTypeCtx, {
 });
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/admin_footer.php'; ?>
 

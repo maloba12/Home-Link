@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is a seller
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isSeller()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -124,7 +124,7 @@ include 'seller_header.php';
                 <i class="fas fa-check-circle"></i>
                 <?php echo $success; ?>
                 <br>
-                <a href="/seller/my_properties.php" class="btn btn-sm btn-primary mt-2">View My Properties</a>
+                <a href="../seller/my_properties.php" class="btn btn-sm btn-primary mt-2">View My Properties</a>
             </div>
         <?php endif; ?>
         
@@ -291,7 +291,7 @@ include 'seller_header.php';
                     <button type="submit" class="btn btn-primary btn-large">
                         <i class="fas fa-upload"></i> Upload Property
                     </button>
-                    <a href="/seller/my_properties.php" class="btn btn-outline">
+                    <a href="../seller/my_properties.php" class="btn btn-outline">
                         <i class="fas fa-times"></i> Cancel
                     </a>
                 </div>
@@ -480,4 +480,4 @@ document.getElementById('city').addEventListener('change', function() {
 });
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/seller_footer.php'; ?>

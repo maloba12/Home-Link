@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is an agent
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isAgent()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -56,7 +56,7 @@ include 'agent_header.php';
         <div class="admin-page-header">
             <h1><i class="fas fa-building"></i> Managed Properties</h1>
             <p>Properties you are managing for clients</p>
-            <a href="/agent/add_property.php" class="btn btn-primary">
+            <a href="../agent/add_property.php" class="btn btn-primary">
                 <i class="fas fa-plus-circle"></i> Add New Property
             </a>
         </div>
@@ -126,7 +126,7 @@ include 'agent_header.php';
                     <button type="submit" class="btn btn-secondary">
                         <i class="fas fa-filter"></i> Filter
                     </button>
-                    <a href="/agent/managed_properties.php" class="btn btn-outline">
+                    <a href="../agent/managed_properties.php" class="btn btn-outline">
                         <i class="fas fa-redo"></i> Reset
                     </a>
                 </div>
@@ -156,7 +156,7 @@ include 'agent_header.php';
                                     <div class="empty-state">
                                         <i class="fas fa-home"></i>
                                         <p>No properties found.</p>
-                                        <a href="/agent/add_property.php" class="btn btn-primary">Add Your First Property</a>
+                                        <a href="../agent/add_property.php" class="btn btn-primary">Add Your First Property</a>
                                     </div>
                                 </td>
                             </tr>
@@ -166,7 +166,7 @@ include 'agent_header.php';
                                     <td>
                                         <div class="property-cell">
                                             <?php if ($property['primary_image']): ?>
-                                                <img src="/<?php echo htmlspecialchars($property['primary_image']); ?>" alt="Property" class="property-thumb">
+                                                <img src="<?php echo htmlspecialchars($property['primary_image']); ?>" alt="Property" class="property-thumb">
                                             <?php else: ?>
                                                 <div class="property-thumb-placeholder">
                                                     <i class="fas fa-home"></i>
@@ -206,11 +206,11 @@ include 'agent_header.php';
                                     <td><?php echo date('M d, Y', strtotime($property['created_at'])); ?></td>
                                     <td>
                                         <div class="action-buttons">
-                                            <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" 
+                                            <a href="../property_details.php?id=<?php echo $property['property_id']; ?>" 
                                                class="btn btn-sm btn-primary" title="View">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="/agent/edit_property.php?id=<?php echo $property['property_id']; ?>" 
+                                            <a href="../agent/edit_property.php?id=<?php echo $property['property_id']; ?>" 
                                                class="btn btn-sm btn-warning" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
@@ -318,4 +318,4 @@ function viewPropertyBookings(propertyId) {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/agent_footer.php'; ?>

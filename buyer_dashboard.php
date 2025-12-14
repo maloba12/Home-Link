@@ -4,12 +4,12 @@ require_once 'includes/auth.php';
 
 // Check if user is logged in and is a buyer
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isBuyer()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -123,19 +123,19 @@ include 'includes/header.php';
     <div class="quick-actions">
         <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
         <div class="action-buttons-grid">
-            <a href="/properties.php" class="action-btn btn-primary">
+            <a href="properties.php" class="action-btn btn-primary">
                 <i class="fas fa-search"></i>
                 <span>Browse Properties</span>
             </a>
-            <a href="/my_favorites.php" class="action-btn btn-danger">
+            <a href="my_favorites.php" class="action-btn btn-danger">
                 <i class="fas fa-heart"></i>
                 <span>My Favorites</span>
             </a>
-            <a href="/my_bookings.php" class="action-btn btn-success">
+            <a href="my_bookings.php" class="action-btn btn-success">
                 <i class="fas fa-calendar"></i>
                 <span>My Bookings</span>
             </a>
-            <a href="/profile.php" class="action-btn btn-secondary">
+            <a href="profile.php" class="action-btn btn-secondary">
                 <i class="fas fa-user-edit"></i>
                 <span>Edit Profile</span>
             </a>
@@ -146,14 +146,14 @@ include 'includes/header.php';
     <div class="dashboard-section">
         <div class="section-header">
             <h2><i class="fas fa-heart"></i> Saved Properties</h2>
-            <a href="/my_favorites.php" class="btn btn-sm btn-primary">View All</a>
+            <a href="my_favorites.php" class="btn btn-sm btn-primary">View All</a>
         </div>
         
         <?php if (empty($favoriteProperties)): ?>
             <div class="empty-state">
                 <i class="fas fa-heart"></i>
                 <p>You haven't saved any properties yet.</p>
-                <a href="/properties.php" class="btn btn-primary">
+                <a href="properties.php" class="btn btn-primary">
                     <i class="fas fa-search"></i> Browse Properties
                 </a>
             </div>
@@ -200,7 +200,7 @@ include 'includes/header.php';
                             </div>
                             
                             <div class="property-actions">
-                                <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
+                                <a href="property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                             </div>
@@ -215,7 +215,7 @@ include 'includes/header.php';
     <div class="dashboard-section">
         <div class="section-header">
             <h2><i class="fas fa-calendar-check"></i> My Bookings</h2>
-            <a href="/my_bookings.php" class="btn btn-sm btn-primary">View All</a>
+            <a href="my_bookings.php" class="btn btn-sm btn-primary">View All</a>
         </div>
         
         <?php if (empty($recentBookings)): ?>
@@ -258,7 +258,7 @@ include 'includes/header.php';
         <div class="dashboard-section">
             <div class="section-header">
                 <h2><i class="fas fa-magic"></i> Recommended For You</h2>
-                <a href="/properties.php" class="btn btn-sm btn-primary">View More</a>
+                <a href="properties.php" class="btn btn-sm btn-primary">View More</a>
             </div>
             
             <div class="properties-grid">
@@ -303,7 +303,7 @@ include 'includes/header.php';
                             </div>
                             
                             <div class="property-actions">
-                                <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
+                                <a href="property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                                 <button class="btn btn-favorite" data-property-id="<?php echo $property['property_id']; ?>">

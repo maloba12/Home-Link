@@ -196,7 +196,7 @@ class SmartRecommendation {
                     <span class="property-type-badge">${property.type.charAt(0).toUpperCase() + property.type.slice(1)}</span>
                 </div>
                 <div class="property-actions">
-                    <a href="/property_details.php?id=${property.property_id}" class="btn btn-secondary">
+                    <a href="property_details.php?id=${property.property_id}" class="btn btn-secondary">
                         <i class="fas fa-eye"></i> View Details
                     </a>
                 </div>

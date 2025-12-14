@@ -248,5 +248,5 @@ new Chart(propertiesCtx, {
 });
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/admin_footer.php'; ?>
 

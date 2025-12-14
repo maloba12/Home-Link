@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is a seller
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isSeller()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -152,19 +152,19 @@ include 'seller_header.php';
         <div class="admin-section">
             <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
             <div class="action-buttons-grid">
-                <a href="/seller/upload_property.php" class="action-btn btn-primary">
+                <a href="../seller/upload_property.php" class="action-btn btn-primary">
                     <i class="fas fa-plus-circle"></i>
                     <span>Add New Property</span>
                 </a>
-                <a href="/seller/my_properties.php" class="action-btn btn-success">
+                <a href="../seller/my_properties.php" class="action-btn btn-success">
                     <i class="fas fa-list"></i>
                     <span>View All Properties</span>
                 </a>
-                <a href="/seller/bookings.php" class="action-btn btn-info">
+                <a href="../seller/bookings.php" class="action-btn btn-info">
                     <i class="fas fa-calendar"></i>
                     <span>Manage Bookings</span>
                 </a>
-                <a href="/profile.php" class="action-btn btn-secondary">
+                <a href="../profile.php" class="action-btn btn-secondary">
                     <i class="fas fa-user-edit"></i>
                     <span>Edit Profile</span>
                 </a>
@@ -175,14 +175,14 @@ include 'seller_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-building"></i> Recent Properties</h2>
-                <a href="/seller/my_properties.php" class="btn btn-sm btn-primary">View All</a>
+                <a href="../seller/my_properties.php" class="btn btn-sm btn-primary">View All</a>
             </div>
             
             <?php if (empty($recentProperties)): ?>
                 <div class="empty-state">
                     <i class="fas fa-home"></i>
                     <p>You haven't listed any properties yet.</p>
-                    <a href="/seller/upload_property.php" class="btn btn-primary">
+                    <a href="../seller/upload_property.php" class="btn btn-primary">
                         <i class="fas fa-plus-circle"></i> Add Your First Property
                     </a>
                 </div>
@@ -205,7 +205,7 @@ include 'seller_header.php';
                                     <td>
                                         <div class="property-cell">
                                             <?php if ($property['primary_image']): ?>
-                                                <img src="/<?php echo htmlspecialchars($property['primary_image']); ?>" alt="Property" class="property-thumb">
+                                                <img src="<?php echo htmlspecialchars($property['primary_image']); ?>" alt="Property" class="property-thumb">
                                             <?php else: ?>
                                                 <div class="property-thumb-placeholder">
                                                     <i class="fas fa-home"></i>
@@ -224,10 +224,10 @@ include 'seller_header.php';
                                     <td><?php echo $property['booking_count']; ?></td>
                                     <td>
                                         <div class="action-buttons">
-                                            <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-sm btn-primary" title="View">
+                                            <a href="../property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-sm btn-primary" title="View">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="/edit_property.php?id=<?php echo $property['property_id']; ?>" class="btn btn-sm btn-warning" title="Edit">
+                                            <a href="../edit_property.php?id=<?php echo $property['property_id']; ?>" class="btn btn-sm btn-warning" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         </div>
@@ -244,7 +244,7 @@ include 'seller_header.php';
         <div class="admin-section">
             <div class="section-header">
                 <h2><i class="fas fa-calendar-check"></i> Recent Bookings</h2>
-                <a href="/seller/bookings.php" class="btn btn-sm btn-primary">View All</a>
+                <a href="../seller/bookings.php" class="btn btn-sm btn-primary">View All</a>
             </div>
             
             <?php if (empty($recentBookings)): ?>
@@ -282,4 +282,4 @@ include 'seller_header.php';
     </main>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/seller_footer.php'; ?>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+session_start([
+    'cookie_path' => '/',
+    'save_path' => '/tmp',
+]);
 
 // Check if user is logged in
 function isLoggedIn() {
@@ -34,7 +37,7 @@ function isAgent() {
 // Redirect if not logged in
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /login.php');
+        header('Location: login.php');
         exit();
     }
 }
@@ -43,7 +46,7 @@ function requireLogin() {
 function requireAdmin() {
     requireLogin();
     if (!isAdmin()) {
-        header('Location: /index.php');
+        header('Location: index.php');
         exit();
     }
 }
@@ -52,7 +55,7 @@ function requireAdmin() {
 function requireSeller() {
     requireLogin();
     if (!isSeller() && !isAdmin()) {
-        header('Location: /index.php');
+        header('Location: index.php');
         exit();
     }
 }
@@ -61,7 +64,7 @@ function requireSeller() {
 function requireAgent() {
     requireLogin();
     if (!isAgent() && !isAdmin()) {
-        header('Location: /index.php');
+        header('Location: index.php');
         exit();
     }
 }

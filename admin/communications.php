@@ -4,15 +4,13 @@ require_once dirname(__DIR__) . "/includes/auth.php";
 
 // Check if user is logged in and is a buyer
 if (!isLoggedIn()) {
-    // Temporarily bypass authentication for testing
-    // header("Location: ../login.php");
-    // exit();
+    header("Location: ../login.php");
+    exit();
 }
 
 if (!isBuyer()) {
-    // Temporarily bypass authentication for testing
-    // header("Location: ../index.php");
-    // exit();
+    header("Location: ../index.php");
+    exit();
 }
 
 $pageTitle = "Communications - HomeLink";
@@ -183,4 +181,4 @@ document.getElementById("statusFilter").addEventListener("change", function() {
 });
 </script>
 
-<?php include "buyer_footer.php"; ?>
+<?php include "admin_footer.php"; ?>

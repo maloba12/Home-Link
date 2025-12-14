@@ -42,15 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 // Redirect based on role
                 if ($user['role'] === 'admin') {
-                    header('Location: /admin/dashboard.php');
+                    header('Location: admin/dashboard.php');
                 } elseif ($user['role'] === 'seller') {
-                    header('Location: /seller/dashboard.php');
+                    header('Location: seller/dashboard.php');
                 } elseif ($user['role'] === 'agent') {
-                    header('Location: /agent/dashboard.php');
+                    header('Location: agent/dashboard.php');
                 } elseif ($user['role'] === 'buyer') {
-                    header('Location: /buyer/dashboard.php');
+                    header('Location: buyer/dashboard.php');
                 } else {
-                    header('Location: /index.php');
+                    header('Location: index.php');
                 }
                 exit();
             } else {
@@ -90,7 +90,7 @@ include 'includes/header.php';
             <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
         </form>
         
-        <p class="auth-link">Don't have an account? <a href="/register.php">Register here</a></p>
+        <p class="auth-link">Don't have an account? <a href="register.php">Register here</a></p>
     </div>
 </div>
 

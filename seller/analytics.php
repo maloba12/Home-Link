@@ -4,12 +4,12 @@ require_once dirname(__DIR__) . '/includes/auth.php';
 
 // Check if user is logged in and is a seller
 if (!isLoggedIn()) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit();
 }
 
 if (!isSeller()) {
-    header('Location: /index.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -198,7 +198,7 @@ include 'seller_header.php';
                             <?php foreach ($topProperties as $property): ?>
                                 <tr>
                                     <td>
-                                        <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="property-link">
+                                        <a href="../property_details.php?id=<?php echo $property['property_id']; ?>" class="property-link">
                                             <?php echo htmlspecialchars($property['title']); ?>
                                         </a>
                                     </td>
@@ -502,4 +502,4 @@ new Chart(bookingsCtx, {
 });
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/seller_footer.php'; ?>

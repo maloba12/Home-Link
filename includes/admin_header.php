@@ -15,7 +15,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title><?php echo $pageTitle; ?></title>
-    <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -36,7 +36,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     <i class="fas fa-user-circle"></i>
                     <?php echo htmlspecialchars($_SESSION['username'] ?? 'Admin'); ?>
                 </span>
-                <a href="/logout.php" class="admin-logout-btn" title="Logout">
+                <a href="../logout.php" class="admin-logout-btn" title="Logout">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>

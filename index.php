@@ -132,7 +132,7 @@ include 'includes/header.php';
                         }
                         ?>
                         <?php if ($hasImage): ?>
-                            <img src="<?php echo htmlspecialchars('/' . ltrim($primaryImage, '/')); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" class="property-image">
+                            <img src="<?php echo htmlspecialchars($primaryImage); ?>" alt="<?php echo htmlspecialchars($property['title']); ?>" class="property-image">
                         <?php else: ?>
                             <div class="property-image-placeholder">
                                 <i class="fas fa-home"></i>
@@ -160,7 +160,7 @@ include 'includes/header.php';
                             </div>
                             
                             <div class="property-actions">
-                                <a href="/property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
+                                <a href="property_details.php?id=<?php echo $property['property_id']; ?>" class="btn btn-secondary">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                                 <?php if (isLoggedIn()): ?>

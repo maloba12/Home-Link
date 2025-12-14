@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
     // exit();
 }
 
-if (!isBuyer()) {
+if (!isSeller()) {
     // Temporarily bypass authentication for testing
     // header("Location: ../index.php");
     // exit();
@@ -183,4 +183,4 @@ document.getElementById("statusFilter").addEventListener("change", function() {
 });
 </script>
 
-<?php include "buyer_footer.php"; ?>
+<?php include "seller_footer.php"; ?>
